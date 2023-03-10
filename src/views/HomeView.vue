@@ -1,10 +1,18 @@
 <template>
-  <div class="home">Hello World</div>
+  <div>
+    
+  </div>
 </template>
 
 <script>
 export default {
   name: "HomeView",
   components: {},
+  data() {
+    return {
+    };
+  },
+  mounted() {
+},
 };
 </script>
