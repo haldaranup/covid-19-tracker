@@ -1,6 +1,6 @@
 <template>
-  <div>
-    
+  <div v-for="(item, index) in data" :key="index">
+    <div>{{ item.title }}</div>
   </div>
 </template>
 
@@ -10,9 +10,22 @@ export default {
   components: {},
   data() {
     return {
+      data: [],
     };
   },
-  mounted() {
-},
+  methods: {
+    fetchData() {
+      fetch("https://fakestoreapi.com/products")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          this.data = data;
+        });
+    },
+  },
+  created() {
+    this.fetchData();
+  },
+  mounted() {},
 };
 </script>
