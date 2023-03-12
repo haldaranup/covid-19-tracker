@@ -1,4 +1,6 @@
 <template>
+  <button @click="goToFormPage($event)">Form</button>
+  <router-link to="/form">Form Page</router-link>
   <div v-for="(item, index) in data" :key="index">
     <div>{{ item.title }}</div>
   </div>
@@ -14,6 +16,9 @@ export default {
     };
   },
   methods: {
+    goToFormPage(e){
+      this.$router.push({path: '/form'})
+    },
     fetchData() {
       fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
